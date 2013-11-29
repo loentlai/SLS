@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'vm', 'events', 'hbs!http://raw.github.com/loentlai/SLS/master/plugin/templates/youtube/preview'], function($, _, Backbone, ViewManager, events, previewTpl) {'use strict';
+define(['jquery', 'underscore', 'backbone', 'vm', 'events', 'hbs!views/wall/postform/plugin/templates/youtube/preview'], function($, _, Backbone, ViewManager, events, previewTpl) {'use strict';
 
 	var YouTubeView = Backbone.AppView.extend({
 
