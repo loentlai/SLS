@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'vm', 'events', 'hbs!views/wall/postform/plugin/templates/youtube/preview'], function($, _, Backbone, ViewManager, events, previewTpl) {'use strict';
+define(['jquery', 'underscore', 'backbone', 'vm', 'events', 'hbs!templates/youtube/preview'], function($, _, Backbone, ViewManager, events, previewTpl) {'use strict';
 
 	var YouTubeView = Backbone.AppView.extend({
 
@@ -18,20 +18,20 @@ define(['jquery', 'underscore', 'backbone', 'vm', 'events', 'hbs!views/wall/post
 		},
 
 		inputValue : function(e) {
-			var self = this, urlRegex = /(\b(https?):\/\/www.youtube.com\/[\-A-Z0-9+&@#\/%?=~_|!:,.;]*[\-A-Z0-9+&@#\/%=~_|])/ig;
+			var self = this, urlRegex = /(\b(https?):\/\/www\.youtube\.com\/[\-A-Z0-9+&@#\/%?=~_|!:,\.;]*[\-A-Z0-9+&@#\/%=~_|])/ig;
 			if (this.$('.post-form .post-addfile').length > 0) {
-				setTimeout(function() {
+				window.setTimeout(function() {
 					var inputStr = self.$('.post-form .msg').val(), choosen;
 					if (inputStr.length > 0 && !_.isNull(inputStr.match(urlRegex))) {
 						choosen = inputStr.split('v=')[1];
-						if (choosen.indexOf('&') != -1) {
+						if (choosen.indexOf('&') !== -1) {
 							choosen = choosen.substring(0, choosen.indexOf('&'));
 						}
 						$.ajax({
 							url : 'http://gdata.youtube.com/feeds/api/videos/'+choosen+'?v=2&alt=json',
 							dataType : 'jsonp',
 							success : function(data) {
-								console.log(data);
+								//console.log(data);
 								self.$('.post-form .post-addfile').hide();
 								self.$('.post-form .post-addfile').after(previewTpl({
 									videoImg : 'http://img.youtube.com/vi/'+choosen+'/default.jpg',
