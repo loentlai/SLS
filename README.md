@@ -107,7 +107,7 @@ widgetA.onStart(function() {
 ###onBeforeClose(callback)
 When **close()** method is fired, this method will fire before close(), it's a callback function for close().
 ###sizeChange(size)
-When widget is started and set autoGrow as ```true``` in initialize setting, ```Widgetfly.Server``` can helps you to fire the method to this, and auto resize the widget in disply, the detail of this usage you can see [Widgetfly.Server](###Widgetfly.Server) also.
+When widget is started and set autoGrow as ```true``` in initialize setting, ```Widgetfly.Server``` can helps you to fire the method to this, and auto resize the widget in disply, the detail of this usage you can see [Widgetfly.Server](#Widgetfly.Server) also.
 
 
 #Widgetfly.Panel
