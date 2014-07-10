@@ -128,8 +128,8 @@ var myPanel = new Widgetfly.Panel({
 
 
 #Module Methods
-##onStart()
-**onStart** method used to tells framework the widget is already started, and developer can do something after this callback function.
+##Example
+We used this example module(Panel) to explain the method below
 ```
 var MyWidget = Widgetfly.Panel.extend({/** overwrite **/});
 var widgetA = new MyWidget({
@@ -138,6 +138,11 @@ var widgetA = new MyWidget({
 	show : true,
 	src : 'http://test.url/page/which/include'
 });
+```
+
+##onStart()
+**onStart** method used to tells framework the widget is already started, and developer can do something after this callback function.
+```
 widgetA.onStart(function() {
 	console.log('widgetA is started');
 });
