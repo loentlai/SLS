@@ -92,14 +92,36 @@ var myPanel = new Widgetfly.Panel({
 
 ```
 
-##Options
-* colorScheme: light / dark
-* width : string
-* height : string
-* autoGrow : true / false / width / height
-* url : URL
+
+#Widgetfly.Panel support options
+##Module Options
+* container : id / class / HTML tag
+* autoGrow : true / false
+* src : URL
+* show : true / false
+* options : {
+* 	key : value
+* }
+
+##Methods support list
+
+#Widgetfly.Modal support options
+##Module Options
+* container : id / class / HTML tag
+* backdrop: light / dark
+* autoGrow : true / false
+* src : URL
 * show : true / false
 
+##Methods support list
+
+#Widgetfly.Popover support options
+##Module Options
+* target : id / class / HTML tag
+* placement : top / left / bottom / right
+* autoGrow : true / false
+* src : URL
+* show : true / false
 
 ##Methods support list
 
