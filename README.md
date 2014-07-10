@@ -93,7 +93,7 @@ var myPanel = new Widgetfly.Panel({
 ```
 
 
-#Widgetfly.Panel support options
+#Widgetfly.Panel
 ##Module Options
 * container : id / class / HTML tag
 * autoGrow : true / false
@@ -105,7 +105,7 @@ var myPanel = new Widgetfly.Panel({
 
 ##Methods support list
 
-#Widgetfly.Modal support options
+#Widgetfly.Modal
 ##Module Options
 * container : id / class / HTML tag
 * backdrop: light / dark
@@ -115,7 +115,7 @@ var myPanel = new Widgetfly.Panel({
 
 ##Methods support list
 
-#Widgetfly.Popover support options
+#Widgetfly.Popover
 ##Module Options
 * target : id / class / HTML tag
 * placement : top / left / bottom / right
