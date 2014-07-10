@@ -77,37 +77,7 @@ Following example shows how to interact between widgets.
 </script>
 ```
 
-#Widgetfly.Widget
-**Widget** is a base structure of all widget, It contains some method to handle actions of modules we provide.
-##Methods
-###onStart()
-**onStart** method used to tells framework the widget is already started, and developer can do something after this callback function.
-```
-var MyWidget = Widgetfly.Panel.extend({/** overwrite **/});
-var widgetA = new MyWidget({
-	container : '.testClass',
-	autoGrow : true,
-	show : true,
-	src : 'http://test.url/page/which/include'
-});
-widgetA.onStart(function() {
-	console.log('widgetA is started');
-});
-```
-###show()
-**show()** is used to show the widget if it is invisible.
-###onShow(callback)
-**onShow()** is a callback function with **show()**, this function will fire when show() is fired, it will action before show(), after it finished, call show() to work.
-###hide()
-**hide()** is used to hide the widget if it is visible.
-###onHide(callback)
-**onHide()** is similar to **onShow()**, one is for show() callback, and this is a callback for hide(). 
-###close()
-**close()** can helps you to **destroy** the widget and release memory.
-###onBeforeClose(callback)
-When **close()** method is fired, this method will fire before close(), it's a callback function for close().
-###sizeChange(size)
-When widget is started and set autoGrow as ```true``` in initialize setting, ```Widgetfly.Server``` can helps you to fire the method to this, and auto resize the widget in disply, the detail of this usage you can see [Widgetfly.Server expand()](#expand) also.
+
 
 
 #Widgetfly.Panel
@@ -131,13 +101,39 @@ var myPanel = new Widgetfly.Panel({
 * show : true / false
 
 
-##Methods
-###show()
-###hide()
-###close()
+##Methods support list
 
 
 
+#Module Methods
+##onStart()
+**onStart** method used to tells framework the widget is already started, and developer can do something after this callback function.
+```
+var MyWidget = Widgetfly.Panel.extend({/** overwrite **/});
+var widgetA = new MyWidget({
+	container : '.testClass',
+	autoGrow : true,
+	show : true,
+	src : 'http://test.url/page/which/include'
+});
+widgetA.onStart(function() {
+	console.log('widgetA is started');
+});
+```
+##show()
+**show()** is used to show the widget if it is invisible.
+##onShow(callback)
+**onShow()** is a callback function with **show()**, this function will fire when show() is fired, it will action before show(), after it finished, call show() to work.
+##hide()
+**hide()** is used to hide the widget if it is visible.
+##onHide(callback)
+**onHide()** is similar to **onShow()**, one is for show() callback, and this is a callback for hide(). 
+##close()
+**close()** can helps you to **destroy** the widget and release memory.
+##onBeforeClose(callback)
+When **close()** method is fired, this method will fire before close(), it's a callback function for close().
+##sizeChange(size)
+When widget is started and set autoGrow as ```true``` in initialize setting, ```Widgetfly.Server``` can helps you to fire the method to this, and auto resize the widget in disply, the detail of this usage you can see [Widgetfly.Server expand()](#expand) also.
 
 
 
