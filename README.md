@@ -99,9 +99,7 @@ var myPanel = new Widgetfly.Panel({
 * autoGrow : true / false
 * src : URL
 * show : true / false
-* options : {
-* 	key : value
-* }
+* options : { key : value }
 
 ##Methods support list
 
@@ -149,10 +147,30 @@ widgetA.onStart(function() {
 ```
 ##show()
 **show()** is used to show the widget if it is invisible.
+
+**In App Case :**
+```
+widgetA.show();
+```
+
+**In Widget Case :**
+```
+widgetfly.Server.show();
+```
 ##onShow(callback)
 **onShow()** is a callback function with **show()**, this function will fire when show() is fired, it will action before show(), after it finished, call show() to work.
 ##hide()
 **hide()** is used to hide the widget if it is visible.
+
+**In App Case :**
+```
+widgetA.hide();
+```
+
+**In Widget Case :**
+```
+widgetfly.Server.hide();
+```
 ##onHide(callback)
 **onHide()** is similar to **onShow()**, one is for show() callback, and this is a callback for hide(). 
 ##close()
