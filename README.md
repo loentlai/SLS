@@ -5,15 +5,11 @@ A javascript library for building cross-site web widgets.
 
 
 #Installation
-
 Install using bower:
-
 ```shell
 $ bower install widgetfly --save
 ```
-
 Configure RequireJS 
-
 ```
 require.config({
 	...
@@ -35,9 +31,7 @@ define(["widgetfly"], function (Widgetfly) {
 ```
 
 #Usage
-
 Include the Widgetfly SDK on your page once, ideally right after the opening ```<body>``` tag.
-
 ```
 <div id="widgetfly-root"></div>
 <script>(function(d, s, id, callback) {
@@ -59,9 +53,7 @@ Include the Widgetfly SDK on your page once, ideally right after the opening ```
 ```
 
 ##Using a Widgetfly programmatically
-
 Following example shows how to interact between widgets.
-
 ```
 <script src="wigetfly.min.js"></script>
 <script>
@@ -76,7 +68,6 @@ Following example shows how to interact between widgets.
 	});
 </script>
 ```
-
 #Widgetfly Modules
 ##Widgetfly.Panel
 **Panel** is a module that ................ For example:
@@ -91,7 +82,6 @@ var widgetA = new MyWidgetA({
 		hello: 'world'
 	}
 });
-
 ```
 ###Module Options
 * container : id / class / HTML tag
@@ -102,7 +92,7 @@ var widgetA = new MyWidgetA({
 
 ###Methods support list
 
-#Widgetfly.Modal
+##Widgetfly.Modal
 **Modal** is a module that ................ For example:
 ```
 var MyWidgetB = Widgetfly.Modal.extend({ 'custom' : 'and override' });
@@ -113,18 +103,17 @@ var widgetB = new MyWidgetB({
 	show : true,
 	src : 'http://host.domain/page/which/used'
 });
-
 ```
-##Module Options
+###Module Options
 * container : id / class / HTML tag
 * backdrop: light / dark
 * autoGrow : true / false
 * src : URL
 * show : true / false
 
-##Methods support list
+###Methods support list
 
-#Widgetfly.Popover
+##Widgetfly.Popover
 **Popover** is a module that ................ For example:
 ```
 var MyWidgetC = Widgetfly.Popover.extend({ 'custom' : 'and override' });
@@ -135,16 +124,15 @@ var widgetC = new MyWidgetC({
 	show : true,
 	src : 'http://host.domain/page/which/used'
 });
-
 ```
-##Module Options
+###Module Options
 * target : id / class / HTML tag
 * placement : top / left / bottom / right
 * autoGrow : true / false
 * src : URL
 * show : true / false
 
-##Methods support list
+###Methods support list
 
 
 
