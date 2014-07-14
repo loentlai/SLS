@@ -91,6 +91,38 @@ var widgetA = new MyWidgetA({
 * options : { key : value }
 
 ###Methods support list
+<table>
+    <tr>
+        <td>onStart</td>
+    </tr>
+    <tr>
+        <td>show</td>
+    </tr>
+    <tr>
+        <td>onShow</td>
+    </tr>
+    <tr>
+        <td>hide</td>
+    </tr>
+    <tr>
+        <td>onHide</td>
+    </tr>
+    <tr>
+        <td>close</td>
+    </tr>
+    <tr>
+        <td>onBeforeClose</td>
+    </tr>
+    <tr>
+        <td>isShow</td>
+    </tr>
+    <tr>
+        <td>getId</td>
+    </tr>
+    <tr>
+        <td>Widget.Server.exapnd</td>
+    </tr>
+</table>
 
 ##Widgetfly.Modal
 **Modal** is a module that ................ For example:
@@ -123,6 +155,9 @@ var widgetB = new MyWidgetB({
         <td>onShow</td>
     </tr>
     <tr>
+        <td>hide</td>
+    </tr>
+    <tr>
         <td>onHide</td>
     </tr>
     <tr>
@@ -130,6 +165,15 @@ var widgetB = new MyWidgetB({
     </tr>
     <tr>
         <td>onBeforeClose</td>
+    </tr>
+    <tr>
+        <td>isShow</td>
+    </tr>
+    <tr>
+        <td>getId</td>
+    </tr>
+    <tr>
+        <td>Widget.Server.exapnd</td>
     </tr>
 </table>
 ##Widgetfly.Popover
@@ -152,8 +196,38 @@ var widgetC = new MyWidgetC({
 * show : true / false
 
 ###Methods support list
-
-
+<table>
+    <tr>
+        <td>onStart</td>
+    </tr>
+    <tr>
+        <td>show</td>
+    </tr>
+    <tr>
+        <td>onShow</td>
+    </tr>
+    <tr>
+        <td>hide</td>
+    </tr>
+    <tr>
+        <td>onHide</td>
+    </tr>
+    <tr>
+        <td>close</td>
+    </tr>
+    <tr>
+        <td>onBeforeClose</td>
+    </tr>
+    <tr>
+        <td>isShow</td>
+    </tr>
+    <tr>
+        <td>getId</td>
+    </tr>
+    <tr>
+        <td>Widget.Server.exapnd</td>
+    </tr>
+</table>
 
 #Module Methods
 We will follow example in [using a Widgetfly programmatically](#using a Widgetfly programmatically) to explain the method below.
@@ -223,11 +297,8 @@ Return boolean value of the widget is visible or not.
 ###getId()
 Return widget unique ID.
 
-## Widgetfly.Server - widget user Mode
+##Widgetfly.Server - widget user Mode
 In widget, we seems you will be a user, the widget provider(developer) generate a widget and provide some actions for you, like hide, widget provide controll a method ```onHide()```, so when you controll the view and set hide, thec action will work with method ```onHide()``` and work.
-```
-widgetfly.Server.hide();
-```
 ###show()
 ```
 Widgetfly.Server.show();
@@ -245,7 +316,3 @@ When widget is started and set autoGrow as ```true``` in initialize setting, Thi
 ```
 Widgetfly.Server.expand();
 ```
-
-
-
-
