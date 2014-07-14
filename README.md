@@ -66,44 +66,55 @@ Following example shows how to interact between widgets.
 <script src="wigetfly.min.js"></script>
 <script>
 	//Creating a custom widget class. 
-	var WidgetA = Widgetfly.Panel.extend({ 'custom' : 'and override' });
-	var WidgetB = Widgetfly.Modal.extend({ 'custom' : 'and override' });
+	var MyWidgetA = Widgetfly.Panel.extend({ 'custom' : 'and override' });
+	var MyWidgetB = Widgetfly.Modal.extend({ 'custom' : 'and override' });
 	//Using your widget class.
-	var myWidgetA = new WidgetA({ 'custom' : 'options' });
-	myWidgetA('widget-event',function(result){
-		var myWidgetB = new WidgetB({ 'custom' : 'options' });
-		myWidgetB.show();
+	var widgetA = new MyWidgetA({ 'custom' : 'options' });
+	widgetA('widget-event',function(result){
+		var widgetB = new MyWidgetB({ 'custom' : 'options' });
+		widgetB.show();
 	});
 </script>
 ```
 
-
-
-
-#Widgetfly.Panel
-
+#Widgetfly Modules
+##Widgetfly.Panel
 **Panel** is a module that ................ For example:
-
-
 ```
-var myPanel = new Widgetfly.Panel({
-    options....
+var MyWidgetA = Widgetfly.Panel.extend({ 'custom' : 'and override' });
+var widgetA = new MyWidgetA({
+	container : '.classContainer',
+	autoGrow : true,
+	show : true,
+	src : 'http://host.domain/page/which/used',
+	options : {
+		hello: 'world'
+	}
 });
 
 ```
-
-
-#Widgetfly.Panel
-##Module Options
+###Module Options
 * container : id / class / HTML tag
 * autoGrow : true / false
 * src : URL
 * show : true / false
 * options : { key : value }
 
-##Methods support list
+###Methods support list
 
 #Widgetfly.Modal
+**Modal** is a module that ................ For example:
+```
+var MyWidgetB = Widgetfly.Modal.extend({ 'custom' : 'and override' });
+var widgetB = new MyWidgetB({
+	container : '.classContainer',
+	backdrop : true,
+	autoGrow : true,
+	show : true,
+	src : 'http://host.domain/page/which/used'
+});
+
+```
 ##Module Options
 * container : id / class / HTML tag
 * backdrop: light / dark
@@ -114,6 +125,18 @@ var myPanel = new Widgetfly.Panel({
 ##Methods support list
 
 #Widgetfly.Popover
+**Popover** is a module that ................ For example:
+```
+var MyWidgetC = Widgetfly.Popover.extend({ 'custom' : 'and override' });
+var widgetC = new MyWidgetC({
+	target : '.classContainer',
+	placement : 'top',
+	autoGrow : true,
+	show : true,
+	src : 'http://host.domain/page/which/used'
+});
+
+```
 ##Module Options
 * target : id / class / HTML tag
 * placement : top / left / bottom / right
@@ -126,18 +149,7 @@ var myPanel = new Widgetfly.Panel({
 
 
 #Module Methods
-##Example
-We used this example module(Panel) to explain the method below
-```
-var MyWidget = Widgetfly.Panel.extend({/** overwrite **/});
-var widgetA = new MyWidget({
-	container : '.testClass',
-	autoGrow : true,
-	show : true,
-	src : 'http://test.url/page/which/include'
-});
-```
-
+We will follow example in [using a Widgetfly programmatically](#using a Widgetfly programmatically) to explain the method below.
 ##onStart()
 **onStart** method used to tells framework the widget is already started, and developer can do something after this callback function.
 ```
@@ -159,6 +171,12 @@ widgetfly.Server.show();
 ```
 ##onShow(callback)
 **onShow()** is a callback function with **show()**, this function will fire when show() is fired, it will action before show(), after it finished, call show() to work.
+```
+widgetA.onShow(function(){
+	console.log('widgetA is prepare to hide');
+	return true;
+});
+```
 ##hide()
 **hide()** is used to hide the widget if it is visible.
 
@@ -172,11 +190,26 @@ widgetA.hide();
 widgetfly.Server.hide();
 ```
 ##onHide(callback)
-**onHide()** is similar to **onShow()**, one is for show() callback, and this is a callback for hide(). 
+**onHide()** is similar to **onShow()**, one is for show() callback, and this is a callback for hide().
+```
+widgetA.onHide(function(){
+	console.log('widgetA is prepare to hide');
+	return true;
+});
+```
 ##close()
 **close()** can helps you to **destroy** the widget and release memory.
+```
+widgetA.close();
+```
 ##onBeforeClose(callback)
 When **close()** method is fired, this method will fire before close(), it's a callback function for close().
+```
+widgetA.onBeforeClose(function(){
+	console.log('widgetA is closing');
+	return true;
+});
+```
 ##sizeChange(size)
 When widget is started and set autoGrow as ```true``` in initialize setting, ```Widgetfly.Server``` can helps you to fire the method to this, and auto resize the widget in disply, the detail of this usage you can see [Widgetfly.Server expand()](#expand) also.
 
@@ -193,11 +226,23 @@ Widgetfly.Server.close();
 
 
 ##Methods
-###start()
 ###show()
+```
+Widgetfly.Server.show();
+```
 ###hide()
+```
+Widgetfly.Server.hide();
+```
 ###close()
+```
+Widgetfly.Server.close();
+```
 ###expand()
+This method is usually used after widget is loaded and render HTML finished. It can help widget to auto sizing.
+```
+Widgetfly.Server.expand();
+```
 
 
 
