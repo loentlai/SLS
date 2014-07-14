@@ -112,7 +112,26 @@ var widgetB = new MyWidgetB({
 * show : true / false
 
 ###Methods support list
-
+<table>
+    <tr>
+        <td>onStart</td>
+    </tr>
+    <tr>
+        <td>show</td>
+    </tr>
+    <tr>
+        <td>onShow</td>
+    </tr>
+    <tr>
+        <td>onHide</td>
+    </tr>
+    <tr>
+        <td>close</td>
+    </tr>
+    <tr>
+        <td>onBeforeClose</td>
+    </tr>
+</table>
 ##Widgetfly.Popover
 **Popover** is a module that ................ For example:
 ```
@@ -138,26 +157,34 @@ var widgetC = new MyWidgetC({
 
 #Module Methods
 We will follow example in [using a Widgetfly programmatically](#using a Widgetfly programmatically) to explain the method below.
-##onStart()
+Before start to use these method, we should know the architecture of widget. In our widget, we make two different mode to help **Developer** and **General user**. Usually, we called **application mode** for Developer and **widget mode** for User.
+##Application mode
+In app, you might be a developer, because you will generate a widget and use our code in app, and provide a widget view for your user.
+If you controll the widget without in initial setting, you can use the following methods to contoll widget display after widget is initialize and render, include get some information or provide some event callback function for user. Like do something when widget is hided :
+```
+widgetA.onHide(function(){
+	// saveDB() is a pseudocode, we don't have this method... just a example
+	saveDB(widgetA.getId());
+	
+	...
+	
+});
+```
+###onStart()
 **onStart** method used to tells framework the widget is already started, and developer can do something after this callback function.
 ```
 widgetA.onStart(function() {
 	console.log('widgetA is started');
 });
 ```
-##show()
+###show()
 **show()** is used to show the widget if it is invisible.
 
 **In App Case :**
 ```
 widgetA.show();
 ```
-
-**In Widget Case :**
-```
-widgetfly.Server.show();
-```
-##onShow(callback)
+###onShow(callback)
 **onShow()** is a callback function with **show()**, this function will fire when show() is fired, it will action before show(), after it finished, call show() to work.
 ```
 widgetA.onShow(function(){
@@ -165,19 +192,12 @@ widgetA.onShow(function(){
 	return true;
 });
 ```
-##hide()
+###hide()
 **hide()** is used to hide the widget if it is visible.
-
-**In App Case :**
 ```
 widgetA.hide();
 ```
-
-**In Widget Case :**
-```
-widgetfly.Server.hide();
-```
-##onHide(callback)
+###onHide(callback)
 **onHide()** is similar to **onShow()**, one is for show() callback, and this is a callback for hide().
 ```
 widgetA.onHide(function(){
@@ -185,12 +205,12 @@ widgetA.onHide(function(){
 	return true;
 });
 ```
-##close()
+###close()
 **close()** can helps you to **destroy** the widget and release memory.
 ```
 widgetA.close();
 ```
-##onBeforeClose(callback)
+###onBeforeClose(callback)
 When **close()** method is fired, this method will fire before close(), it's a callback function for close().
 ```
 widgetA.onBeforeClose(function(){
@@ -198,22 +218,16 @@ widgetA.onBeforeClose(function(){
 	return true;
 });
 ```
-##sizeChange(size)
-When widget is started and set autoGrow as ```true``` in initialize setting, ```Widgetfly.Server``` can helps you to fire the method to this, and auto resize the widget in disply, the detail of this usage you can see [Widgetfly.Server expand()](#expand) also.
+###isShow()
+Return boolean value of the widget is visible or not.
+###getId()
+Return widget unique ID.
 
-
-
-#Widgetfly.Server
-
-**Server** is a module that ................ For example:
-
-
+## Widgetfly.Server - widget user Mode
+In widget, we seems you will be a user, the widget provider(developer) generate a widget and provide some actions for you, like hide, widget provide controll a method ```onHide()```, so when you controll the view and set hide, thec action will work with method ```onHide()``` and work.
 ```
-Widgetfly.Server.close();
+widgetfly.Server.hide();
 ```
-
-
-##Methods
 ###show()
 ```
 Widgetfly.Server.show();
@@ -227,7 +241,7 @@ Widgetfly.Server.hide();
 Widgetfly.Server.close();
 ```
 ###expand()
-This method is usually used after widget is loaded and render HTML finished. It can help widget to auto sizing.
+When widget is started and set autoGrow as ```true``` in initialize setting, This method can helps you to fire the method to this, and auto resize the widget in disply, This method is usually used after widget is loaded and render HTML finished.
 ```
 Widgetfly.Server.expand();
 ```
